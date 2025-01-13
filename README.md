@@ -4,8 +4,13 @@ This repository contains the submission for the Craft My Plate Fullstack Interns
 
 ---
 
+### Video demonstartion 
+https://github.com/user-attachments/assets/2c9e90fe-dc0d-4cb0-a643-44993327f218
+
+## 👉👉[Youtube Video Demonstration](https://youtu.be/XYn7mVN_4AM?si=frkp2EoesWwbTcHC) 👈👈
+
 ## **Index**
-👉👉👉[Link to Backend Repo](https://github.com/webcrafter011/craft-my-plate-backend) 👈👈👈
+👉[Link to Backend Repo](https://github.com/webcrafter011/craft-my-plate-backend) 👈
 
 
 1. [Project Overview](#project-overview)  
@@ -202,7 +207,7 @@ A detailed video walkthrough of the project covering:
 3. React components and state management.
 4. Deployment process.
 
-**YouTube Link:** *(Add the actual link here)*
+**YouTube Link:** *(https://youtu.be/XYn7mVN_4AM?si=frkp2EoesWwbTcHC)*
 
 ---
 
