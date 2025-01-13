@@ -1,136 +1,211 @@
-## 1. **Understand the Requirements** 
-- **Objective**: Build a full-stack app with user authentication, menu management, and order tracking.
-- Decide whether you want to build:
-  - Both the backend (Node.js) and frontend (React.js). ✅
-  - Only one part (if that is sufficient for submission).✅
+# **Craft My Plate Assessment**
 
-## 2. **Backend Development (Node.js)**
+This repository contains the submission for the Craft My Plate Fullstack Internship Assignment. It demonstrates a complete fullstack application with authentication, menu management, and order functionality.
 
-### Step 1: **Setup Project**   ✅
-- Initialize the project with `npm init`.
-- Install required dependencies:
-  ```bash
-  npm install express mongoose cors bcryptjs jsonwebtoken dotenv
-  npm install --save-dev nodemon
-  ```
-- Set up a basic Express server.
+---
 
-### Step 2: **Database (MongoDB)**✅
-- Create a MongoDB Atlas account and set up a cluster.
-- Install the MongoDB client (`mongoose`).
-- Design models:
-  - **User**: `username`, `password`.✅
-  - **Menu**: `name`, `category`, `price`, `availability`.✅
-  - **Order**: `userId`, `items`, `totalAmount`, `status`, `createdAt`.✅
+## **Index**
 
-### Step 3: **API Endpoints**
+1. [Project Overview](#project-overview)  
+2. [Features](#features)  
+   - [User Authentication](#1-user-authentication)  
+   - [Menu Management](#2-menu-management)  
+   - [Order Management](#3-order-management)  
+   - [Responsive Frontend](#4-responsive-frontend)  
+   - [State Management](#5-state-management)  
+   - [API Integration](#6-api-integration)  
+   - [Deployment](#7-deployment)  
+3. [Backend](#backend)  
+   - [Features](#features-1)  
+   - [Endpoints](#endpoints)  
+   - [Deployment](#deployment)  
+4. [Frontend](#frontend)  
+   - [Functionalities](#functionalities)  
+   - [Deployment](#deployment-1)  
+5. [Tech Stack](#tech-stack)  
+6. [How to Run Locally](#how-to-run-locally)  
+   - [Backend](#backend-1)  
+   - [Frontend](#frontend-1)  
+7. [Video Walkthrough](#video-walkthrough)  
+8. [Acknowledgments](#acknowledgments)  
+
+---
+
+## **Project Overview**
+
+This project features a backend built with **Node.js** and **MongoDB**, along with a frontend created using **React.js**. The application implements user authentication, menu and order management, and integrates API communication seamlessly. Both the backend and frontend are deployed on cloud platforms.
+
+---
+
+## **Features**
+
+### **1. User Authentication**
+- Secure user registration and login using **JWT-based authentication**.
+- Passwords are stored securely as hashed values.
+- Local storage is used on the frontend to maintain the user session.
+
+### **2. Menu Management**
+- View all menu items with details like name, category, price, and availability.
+- Add, update, and delete menu items (restricted to authenticated users).
+
+### **3. Order Management**
+- Place orders by selecting menu items and quantities.
+- View all orders placed by the logged-in user.
+- Order statuses (e.g., Pending, Completed) are tracked and displayed.
+
+### **4. Responsive Frontend**
+- User-friendly and responsive interface created with **React.js** and styled using **React-Bootstrap**.
+- Comprehensive component-based styling using `Component.module.css`.
+
+### **5. State Management**
+- React Context is used to manage user sessions, menu data, and cart functionality efficiently.
+
+### **6. API Integration**
+- Full CRUD API operations for managing menu items and orders.
+- Seamless interaction between the frontend and backend.
+
+### **7. Deployment**
+- **Backend**: Deployed on **Render**.
+- **Frontend**: Deployed on **Vercel**.
+
+---
+
+## **Backend**
+
+The backend is a Node.js application powered by Express and MongoDB.
+
+### **Features**
+- Authentication and authorization using **JWT tokens**.
+- MongoDB for data persistence with schemas for users, menu items, and orders.
+- Data validation and error handling to ensure a robust API.
+
+### **Endpoints**
+
+#### **User Authentication**
+1. **POST /register**: Register a new user with a hashed password.
+2. **POST /login**: Authenticate an existing user and return a JWT token.
+
+#### **Menu Management**
+3. **GET /menu**: Fetch all menu items.
+4. **POST /menu**: Add a new menu item (requires authentication).
+5. **DELETE /menu/:id**: Delete a menu item if it is not part of any order.
+
+#### **Order Management**
+6. **GET /orders**: Fetch all orders placed by the logged-in user.
+7. **POST /order**: Place an order with selected menu items and quantities.
+8. **DELETE /order/:id**: Delete an order (restricted to the user who placed it).
+
+### **Deployment**
+The backend is deployed on Render and accessible at:
+[https://craft-my-plate-backend-w0y6.onrender.com/](https://craft-my-plate-backend-w0y6.onrender.com/)
+
+---
+
+## **Frontend**
+
+The frontend is built using React.js, with a focus on simplicity and responsiveness.
+
+### **Functionalities**
 1. **Authentication**:
-   - **POST** `/register`: Register users (hash passwords using bcrypt).✅
-   - **POST** `/login`: Validate users and issue a JWT.✅
+   - User registration and login.
+   - JWT token stored in local storage for persistent sessions.
+
 2. **Menu Management**:
-   - **GET** `/menu`: Fetch menu items.✅
-   - **POST** `/menu`: Add items.✅
-   - **PUT** `/menu/:id`: Update items.✅
-   - **DELETE** `/menu/:id`: Delete items.✅
+   - Add, update, and delete menu items.
+   - View menu items with details (e.g., name, price, category).
+
 3. **Order Management**:
-   - **POST** `/order`: Place an order.
-   - **GET** `/orders`: Fetch orders for the logged-in user.
+   - Create and manage orders.
+   - View order history and statuses.
 
-### Step 4: **Validation & Error Handling**
-- Use middleware to validate input.✅
-- Implement error handling for:✅
-  - Missing fields.✅
-  - Unauthorized access.✅
-  - Invalid operations (e.g., updating non-existing records).✅
+4. **Responsive UI/UX**:
+   - Built with **React-Bootstrap** for a polished, mobile-friendly design.
+   - Modular styling using `Component.module.css`.
 
-### Step 5: **Testing**
-- Use tools like Postman to test endpoints.✅
-- Ensure token-based authentication works properly.
-
-### Step 6: **Deploy Backend**
-- Deploy the API using platforms like Heroku, Railway, or Render.
-- Use `.env` for sensitive information (e.g., database URL, JWT secret).
+### **Deployment**
+The frontend is deployed on Vercel and can be accessed at:  
+**[Frontend Deployment Link](#)** *(Add the actual link here)*
 
 ---
 
-## 3. **Frontend Development (React.js)**
+## **Tech Stack**
 
-### Step 1: **Setup Project**✅
-- Initialize the React project using `npx create-react-app`.
-- Install dependencies:
-  ```bash
-  npm install axios react-router-dom
-  npm install --save redux react-redux
-  npm install material-ui bootstrap
-  ```
+### **Frontend:**
+- React.js
+- React-Bootstrap
+- Axios (for API calls)
+- React Context (for state management)
 
-### Step 2: **Pages and Components**
-1. **Login Page**:✅
-   - Build a form for username/password.
-   - On successful login, save the JWT in localStorage.
-2. **Menu Page**:✅
-   - Fetch menu items from `/menu`.
-   - Add CRUD options (ensure API interaction).
-3. **Cart Component**:✅
-   - Allow users to add items with quantities.
-   - Calculate totals.
-4. **Order Page**:
-   - Show cart details.✅
-   - Display order history after placement.✅
+### **Backend:**
+- Node.js
+- Express.js
+- MongoDB with Mongoose
+- bcrypt.js (password hashing)
+- JSON Web Tokens (JWT)
 
-### Step 3: **State Management**✅
-- Use `React Context` or `Redux` to manage:
-  - User session.✅
-  - Menu items.✅
-  - Cart data.✅
-
-### Step 4: **Styling**✅
-- Use Material-UI or Bootstrap to style pages.✅
-- Ensure responsiveness for mobile and desktop.✅
-
-### Step 5: **API Integration**✅
-- Use `axios` for API calls:
-  - Authentication (login/register).✅
-  - Menu (fetch/update/delete/add).✅
-  - Order management (place/get).✅
-
-### Step 6: **Deploy Frontend**
-- Deploy on Vercel or Netlify.
-- Test that it works with the live backend.
+### **Deployment:**
+- Backend: Render
+- Frontend: Vercel
+- Database: MongoDB Atlas
 
 ---
 
-## 4. **Deliverables**
-1. **GitHub Repository**:
-   - Add clear commit messages.
-   - Write a comprehensive `README` with:
-     - Project setup instructions.
-     - Features.
-     - Deployment links.
+## **How to Run Locally**
 
-2. **Deployment Links**:
-   - Backend API.
-   - Frontend URL.
+### **Backend**
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/webcrafter011/craft-my-plate-frontend.git
+   ```
+2. Navigate to the backend folder:
+   ```bash
+   cd backend
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Create a `.env` file with the following variables:
+   ```
+   MONGO_URI=<your-mongodb-uri>
+   JWT_SECRET=<your-jwt-secret>
+   PORT=5000
+   ```
+5. Start the server:
+   ```bash
+   npm start
+   ```
 
-3. **Code Walkthrough Video**:
-   - Explain code structure, functionality, and deployment.
-   - Tools like Loom or OBS Studio can help record the walkthrough.
+### **Frontend**
+1. Navigate to the frontend folder:
+   ```bash
+   cd frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm start
+   ```
 
 ---
 
-## 5. **Testing & Finalization**
-- Test the entire app for:
-  - Authentication.
-  - Menu CRUD operations.
-  - Order flow.
-  - Responsiveness.
-- Address bugs or edge cases.
-- Review against evaluation criteria:
-  - Clean code.
-  - Functional app.
-  - Proper error handling.
-  - Intuitive UI.
+## **Video Walkthrough**
 
---- 
+A detailed video walkthrough of the project covering:
+1. Code structure.
+2. API routes and logic.
+3. React components and state management.
+4. Deployment process.
 
-This roadmap, if followed methodically, will ensure a high-quality submission. Let me know if you need help with any specific part!
+**YouTube Link:** *(Add the actual link here)*
+
+---
+
+## **Acknowledgments**
+
+Thank you for considering this submission for the Craft My Plate internship. I hope this project demonstrates my ability to build and deploy a fullstack application effectively.
+
+---
