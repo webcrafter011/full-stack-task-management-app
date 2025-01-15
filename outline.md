@@ -108,26 +108,26 @@
      - Features.
      - Deployment links.✅
 
-2. **Deployment Links**:
+2. **Deployment Links**:✅
    - Backend API.
    - Frontend URL.
 
-3. **Code Walkthrough Video**:
+3. **Code Walkthrough Video**:✅
    - Explain code structure, functionality, and deployment.
    - Tools like Loom or OBS Studio can help record the walkthrough.
 
 ---
 
-## 5. **Testing & Finalization**
+## 5. **Testing & Finalization**✅
 - Test the entire app for:
-  - Authentication.
+  - Authentication.✅
   - Menu CRUD operations.
   - Order flow.
   - Responsiveness.
-- Address bugs or edge cases.
+- Address bugs or edge cases.✅
 - Review against evaluation criteria:
-  - Clean code.
-  - Functional app.
+  - Clean code.✅
+  - Functional app.✅
   - Proper error handling.
   - Intuitive UI.
 
